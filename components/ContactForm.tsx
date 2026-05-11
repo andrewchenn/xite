@@ -1,60 +1,11 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-const FORMSPREE_ID = 'YOUR_FORM_ID' // replace with ID from formspree.io
-
-interface Errors {
-  name?: string
-  email?: string
-  projType?: string
-  message?: string
-}
+import { useForm, ValidationError } from '@formspree/react'
 
 export default function ContactForm() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [projType, setProjType] = useState('')
-  const [message, setMessage] = useState('')
-  const [errors, setErrors] = useState<Errors>({})
-  const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
-  const [serverError, setServerError] = useState(false)
+  const [state, handleSubmit] = useForm('xgodrakz')
 
-  const clearError = (key: keyof Errors) =>
-    setErrors((e) => ({ ...e, [key]: undefined }))
-
-  const handleSubmit = async (ev: FormEvent) => {
-    ev.preventDefault()
-    const e: Errors = {}
-    if (!name.trim()) e.name = 'Required'
-    if (!email.trim() || !EMAIL_RE.test(email)) e.email = 'A valid email is required'
-    if (!projType) e.projType = 'Please select a project type'
-    if (message.trim().length < 10) e.message = 'Please tell us a bit more'
-    if (Object.keys(e).length) { setErrors(e); return }
-
-    setSubmitting(true)
-    setServerError(false)
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name, email, projType, message }),
-      })
-      if (res.ok) {
-        setSubmitted(true)
-      } else {
-        setServerError(true)
-      }
-    } catch {
-      setServerError(true)
-    } finally {
-      setSubmitting(false)
-    }
-  }
-
-  if (submitted) {
+  if (state.succeeded) {
     return (
       <div className="min-h-[60vh] flex flex-col justify-center py-20">
         <span className="font-sans text-[11px] font-medium text-x-light-gray tracking-[0.13em] uppercase block mb-5">
@@ -81,72 +32,72 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate>
       <div className={fieldClass}>
-        <label className={labelClass}>Name</label>
+        <label htmlFor="name" className={labelClass}>Name</label>
         <input
+          id="name"
+          name="name"
           className={inputClass}
           type="text"
-          value={name}
-          onChange={(e) => { setName(e.target.value); clearError('name') }}
           placeholder="Your full name"
           autoComplete="name"
+          required
         />
-        {errors.name && <p className={errorClass}>{errors.name}</p>}
+        <ValidationError field="name" errors={state.errors} className={errorClass} />
       </div>
 
       <div className={fieldClass}>
-        <label className={labelClass}>Email</label>
+        <label htmlFor="email" className={labelClass}>Email</label>
         <input
+          id="email"
+          name="email"
           className={inputClass}
           type="email"
-          value={email}
-          onChange={(e) => { setEmail(e.target.value); clearError('email') }}
           placeholder="your@email.com"
           autoComplete="email"
+          required
         />
-        {errors.email && <p className={errorClass}>{errors.email}</p>}
+        <ValidationError field="email" errors={state.errors} className={errorClass} />
       </div>
 
       <div className={fieldClass}>
-        <label className={labelClass}>Project type</label>
+        <label htmlFor="projType" className={labelClass}>Project type</label>
         <select
+          id="projType"
+          name="projType"
           className={`${inputClass} cursor-pointer appearance-none`}
-          value={projType}
-          onChange={(e) => { setProjType(e.target.value); clearError('projType') }}
-          style={{ color: projType ? '#0A0A0A' : '#C8C8C8' }}
+          defaultValue=""
+          required
         >
           <option value="" disabled>Select a service</option>
           <option value="portfolio">Portfolio website</option>
           <option value="business">Business transformation</option>
           <option value="other">Something else</option>
         </select>
-        {errors.projType && <p className={errorClass}>{errors.projType}</p>}
+        <ValidationError field="projType" errors={state.errors} className={errorClass} />
       </div>
 
       <div className={`${fieldClass} border-b border-x-border`}>
-        <label className={labelClass}>Message</label>
+        <label htmlFor="message" className={labelClass}>Message</label>
         <textarea
+          id="message"
+          name="message"
           className={`${inputClass} resize-none leading-[1.65] min-h-[100px]`}
-          value={message}
-          onChange={(e) => { setMessage(e.target.value); clearError('message') }}
           placeholder="Tell us about your project, your timeline, and any context that would help."
           rows={5}
+          required
         />
-        {errors.message && <p className={errorClass}>{errors.message}</p>}
+        <ValidationError field="message" errors={state.errors} className={errorClass} />
       </div>
 
-      {serverError && (
-        <p className="font-sans text-[13px] text-[#CC3333] mt-4">
-          Something went wrong. Please try again or email xitedevelopment@gmail.com directly.
-        </p>
-      )}
+      <ValidationError errors={state.errors} className={`${errorClass} mt-4 block`} />
 
       <div className="mt-8">
         <button
           type="submit"
-          disabled={submitting}
+          disabled={state.submitting}
           className="inline-block font-sans text-[12px] font-medium text-white bg-x-black px-7 py-[14px] tracking-[0.07em] uppercase hover:opacity-80 transition-opacity duration-200 disabled:opacity-60"
         >
-          {submitting ? 'Sending...' : 'Send message'}
+          {state.submitting ? 'Sending...' : 'Send message'}
         </button>
       </div>
     </form>

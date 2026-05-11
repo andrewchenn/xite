@@ -61,7 +61,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div className="mt-10 pt-8 border-t border-x-border">
+                <div className="mt-4 pt-6 border-t border-x-border">
                   <p className="font-sans text-[11px] font-medium text-x-light-gray tracking-[0.13em] uppercase mb-[10px]">
                     Email directly
                   </p>
