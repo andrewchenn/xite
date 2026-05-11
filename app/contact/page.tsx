@@ -48,17 +48,17 @@ export default function ContactPage() {
                   Not sure where to start? Book a no-obligation call. We will talk through what you are trying to achieve and whether Xite is the right fit.
                 </p>
 
-                {/* Calendly placeholder */}
-                <div className="border border-x-border mt-6 p-12 max-sm:p-8 flex flex-col items-center gap-[14px]">
-                  <span className="font-mono text-[11px] text-x-light-gray tracking-[0.1em] uppercase">
-                    Calendly embed
-                  </span>
-                  <a
-                    href="https://calendly.com/xite-studio"
-                    className="font-sans text-[13px] text-x-black underline underline-offset-[3px] tracking-[0.03em]"
-                  >
-                    Book a time &#8594;
-                  </a>
+                <div className="mt-6">
+                  <div
+                    className="calendly-inline-widget"
+                    data-url="https://calendly.com/xitedevelopment/30min"
+                    style={{ minWidth: '320px', height: '700px' }}
+                  />
+                  <script
+                    type="text/javascript"
+                    src="https://assets.calendly.com/assets/external/widget.js"
+                    async
+                  />
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-x-border">

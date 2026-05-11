@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import RevealBlock from '@/components/RevealBlock'
 import CTABanner from '@/components/CTABanner'
 
@@ -57,10 +58,15 @@ export default function AboutPage() {
 
             <RevealBlock delay={100}>
               <div>
-                <div className="w-full aspect-[4/5] bg-x-off-white border border-x-border mb-10 flex items-center justify-center">
-                  <span className="font-sans text-[11px] font-medium text-x-light-gray tracking-[0.13em] uppercase">
-                    Headshot
-                  </span>
+                <div className="w-[200px] mb-10 overflow-hidden">
+                  <Image
+                    src="/headshot.jpeg"
+                    alt="Andrew Chen"
+                    width={200}
+                    height={267}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
                 </div>
                 <span className="font-sans text-[11px] font-medium text-x-light-gray tracking-[0.13em] uppercase block mb-5">
                   What we believe

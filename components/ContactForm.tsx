@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const FORMSPREE_ID = 'YOUR_FORM_ID' // replace with ID from formspree.io
 
 interface Errors {
   name?: string
@@ -19,11 +20,12 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({})
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [serverError, setServerError] = useState(false)
 
   const clearError = (key: keyof Errors) =>
     setErrors((e) => ({ ...e, [key]: undefined }))
 
-  const handleSubmit = (ev: FormEvent) => {
+  const handleSubmit = async (ev: FormEvent) => {
     ev.preventDefault()
     const e: Errors = {}
     if (!name.trim()) e.name = 'Required'
@@ -33,7 +35,23 @@ export default function ContactForm() {
     if (Object.keys(e).length) { setErrors(e); return }
 
     setSubmitting(true)
-    setTimeout(() => { setSubmitting(false); setSubmitted(true) }, 1100)
+    setServerError(false)
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name, email, projType, message }),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        setServerError(true)
+      }
+    } catch {
+      setServerError(true)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -115,6 +133,12 @@ export default function ContactForm() {
         />
         {errors.message && <p className={errorClass}>{errors.message}</p>}
       </div>
+
+      {serverError && (
+        <p className="font-sans text-[13px] text-[#CC3333] mt-4">
+          Something went wrong. Please try again or email xitedevelopment@gmail.com directly.
+        </p>
+      )}
 
       <div className="mt-8">
         <button
