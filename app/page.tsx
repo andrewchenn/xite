@@ -4,6 +4,7 @@ import RevealBlock from '@/components/RevealBlock'
 import WorkCard from '@/components/WorkCard'
 import CTABanner from '@/components/CTABanner'
 import HeroCycler from '@/components/HeroCycler'
+import HeroArt from '@/components/HeroArt'
 
 export const metadata: Metadata = {
   title: 'Xite — Boutique Web Design Studio',
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 function Hero() {
   return (
     <section className="relative overflow-hidden min-h-[100svh] flex flex-col justify-end pb-24 pt-[calc(72px+60px)]">
+      <HeroArt />
       <HeroCycler />
       <div className="relative z-10 max-w-content mx-auto px-14 max-md:px-8 max-sm:px-6 w-full">
         <div className="flex justify-between items-end">
