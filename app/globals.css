@@ -31,6 +31,62 @@ body {
   width: 100%;
 }
 
+/* Hero typewriter cycler */
+.hero-cycler {
+  position: absolute;
+  top: calc(var(--nav-h, 72px) + 130px);
+  right: var(--pad, 56px);
+  left: auto;
+  width: 280px;
+  max-width: 42%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-cycle-track {
+  position: relative;
+  min-height: 32px;
+  text-align: left;
+}
+
+.hero-cycle-line {
+  font-family: 'SF Mono', 'JetBrains Mono', 'Menlo', monospace;
+  font-size: 13px;
+  color: #8A8A8A;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.hero-cycle-line.is-phrase {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #0A0A0A;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.hero-cycle-prefix {
+  color: #C8C8C8;
+  margin-right: 6px;
+}
+
+.hero-cycle-caret {
+  display: inline-block;
+  width: 7px;
+  height: 13px;
+  background: #0A0A0A;
+  margin-left: 3px;
+  vertical-align: -2px;
+  animation: caretBlink 0.9s steps(1) infinite;
+}
+
+@keyframes caretBlink {
+  50% { opacity: 0; }
+}
+
 /* Ghost button arrow animation */
 .btn-ghost-arrow {
   display: inline-flex;
