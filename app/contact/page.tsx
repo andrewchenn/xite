@@ -53,7 +53,7 @@ export default function ContactPage() {
                   <div
                     className="calendly-inline-widget"
                     data-url="https://calendly.com/xitedevelopment/30min?hide_event_type_details=1&hide_gdpr_banner=1"
-                    style={{ minWidth: '320px', height: '700px' }}
+                    style={{ minWidth: '320px', height: '630px' }}
                   />
                   <Script
                     src="https://assets.calendly.com/assets/external/widget.js"
