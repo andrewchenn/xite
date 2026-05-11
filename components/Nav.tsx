@@ -123,7 +123,7 @@ export default function Nav() {
                 className="font-sans text-[12px] text-white/30 tracking-[0.08em]"
                 style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', display: 'block' }}
               >
-                andrew@xite.studio
+                xitedevelopment@gmail.com
               </span>
             </div>
           </motion.div>

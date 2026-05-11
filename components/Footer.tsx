@@ -23,10 +23,10 @@ export default function Footer() {
           </nav>
 
           <a
-            href="mailto:andrew@xite.studio"
+            href="mailto:xitedevelopment@gmail.com"
             className="font-sans text-[12px] text-x-light-gray hover:text-x-black transition-colors duration-200"
           >
-            andrew@xite.studio
+            xitedevelopment@gmail.com
           </a>
 
           <span className="font-sans text-[12px] text-x-light-gray">

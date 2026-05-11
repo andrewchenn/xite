@@ -66,10 +66,10 @@ export default function ContactPage() {
                     Email directly
                   </p>
                   <a
-                    href="mailto:andrew@xite.studio"
+                    href="mailto:xitedevelopment@gmail.com"
                     className="font-sans text-[16px] text-x-black tracking-[-0.01em] hover:opacity-60 transition-opacity duration-200"
                   >
-                    andrew@xite.studio
+                    xitedevelopment@gmail.com
                   </a>
                 </div>
               </div>

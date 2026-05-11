@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description:
       'Boutique web design studio delivering exceptional websites for professionals and businesses.',
     type: 'website',
-    url: 'https://xite.studio',
+    url: 'https://xitedigital.online',
   },
   robots: { index: true, follow: true },
 }

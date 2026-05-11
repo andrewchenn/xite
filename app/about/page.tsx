@@ -44,7 +44,7 @@ export default function AboutPage() {
                   Xite exists because too many good professionals and businesses have websites that actively work against them. Slow, generic, embarrassing to share.
                 </p>
                 <p>
-                  I started Xite to fix that. My name is Andrew, and I have spent the past decade building digital products for companies that care about quality. What I noticed was that the gap between good enough and genuinely exceptional was not as wide as agencies make it seem. It just requires focus, craft, and the discipline to say no to shortcuts.
+                  I started Xite to fix that. My name is Andrew, and I have spent the past three years building digital products for companies that care about quality. What I noticed was that the gap between good enough and genuinely exceptional was not as wide as agencies make it seem. It just requires focus, craft, and the discipline to say no to shortcuts.
                 </p>
                 <p>
                   Xite operates differently. We take a small number of projects at a time. Every site gets my full attention. No account managers, no handoffs, no meetings that could have been emails. Just direct collaboration between you and the person actually building your site.
@@ -57,6 +57,11 @@ export default function AboutPage() {
 
             <RevealBlock delay={100}>
               <div>
+                <div className="w-full aspect-[4/5] bg-x-off-white border border-x-border mb-10 flex items-center justify-center">
+                  <span className="font-sans text-[11px] font-medium text-x-light-gray tracking-[0.13em] uppercase">
+                    Headshot
+                  </span>
+                </div>
                 <span className="font-sans text-[11px] font-medium text-x-light-gray tracking-[0.13em] uppercase block mb-5">
                   What we believe
                 </span>

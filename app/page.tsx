@@ -55,7 +55,7 @@ function Hero() {
               className="font-sans text-[11px] text-[#CACACA] tracking-[0.1em] uppercase block"
               style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
             >
-              Est. 2026 — London
+              Est. 2026 — Sydney
             </span>
           </div>
         </div>
