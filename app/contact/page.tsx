@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import RevealBlock from '@/components/RevealBlock'
 import ContactForm from '@/components/ContactForm'
 
@@ -54,10 +55,9 @@ export default function ContactPage() {
                     data-url="https://calendly.com/xitedevelopment/30min"
                     style={{ minWidth: '320px', height: '700px' }}
                   />
-                  <script
-                    type="text/javascript"
+                  <Script
                     src="https://assets.calendly.com/assets/external/widget.js"
-                    async
+                    strategy="afterInteractive"
                   />
                 </div>
 
