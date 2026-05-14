@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import WorkPlaceholder from './WorkPlaceholder'
 
@@ -14,6 +15,7 @@ interface WorkCardProps {
   aspect?: string
   year?: string
   href?: string
+  image?: string
 }
 
 export default function WorkCard({
@@ -26,20 +28,38 @@ export default function WorkCard({
   aspect = '4 / 3',
   year,
   href = '/work',
+  image,
 }: WorkCardProps) {
+  const isExternal = href.startsWith('http')
+  const cardProps = isExternal
+    ? { href, target: '_blank', rel: 'noopener noreferrer' }
+    : { href }
+
   return (
-    <Link href={href} className="block group">
+    <Link {...cardProps} className="block group">
       <motion.div
         whileHover={{ y: -5 }}
         transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <WorkPlaceholder
-          label={name}
-          aspect={aspect}
-          patternId={patternId}
-          angle={angle}
-          bg={bg}
-        />
+        {image ? (
+          <div className="relative overflow-hidden w-full" style={{ aspectRatio: aspect }}>
+            <Image
+              src={image}
+              alt={name}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
+          </div>
+        ) : (
+          <WorkPlaceholder
+            label={name}
+            aspect={aspect}
+            patternId={patternId}
+            angle={angle}
+            bg={bg}
+          />
+        )}
         {year ? (
           <div className="flex justify-between items-baseline mt-5">
             <p className="font-sans text-[11px] font-medium tracking-[0.13em] uppercase text-x-light-gray">

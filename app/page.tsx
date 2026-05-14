@@ -141,11 +141,12 @@ const projects = [
   },
   {
     label: 'Portfolio Website',
-    name: 'Faded Studio',
-    desc: 'Brand identity and web presence for a Sydney creative studio. Minimal, sharp, and built to leave an impression.',
+    name: 'Faded by Shreyash',
+    desc: 'Personal brand site for Sydney barber Shreyash — precision fades, private sessions, and a presence that matches the craft.',
     angle: 90,
     bg: '#0C0C0C',
     href: 'https://fadedstudio.com.au',
+    image: '/work/faded.jpg',
   },
 ]
 
@@ -177,6 +178,7 @@ function SelectedWork() {
                 patternId={`sh${i}`}
                 aspect="4 / 3"
                 href={p.href}
+                image={(p as { image?: string }).image}
               />
             </RevealBlock>
           ))}
