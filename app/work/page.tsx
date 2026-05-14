@@ -35,7 +35,7 @@ const projects = [
     angle: 90,
     bg: '#0C0C0C',
     href: 'https://fadedstudio.com.au',
-    image: '/work/faded.jpg',
+    image: '/work/faded.png',
   },
 ]
 
