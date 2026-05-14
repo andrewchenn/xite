@@ -129,6 +129,7 @@ const projects = [
     desc: 'A partner-level presence for a boutique law firm. Clarity, authority, and trust — above the fold.',
     angle: 45,
     bg: '#0B0B0B',
+    href: '/work',
   },
   {
     label: 'Business Transformation',
@@ -136,13 +137,15 @@ const projects = [
     desc: 'A hospitality brand rebuilt from the ground up. Reservations up 40% in the first quarter.',
     angle: 135,
     bg: '#0E0E0E',
+    href: '/work',
   },
   {
     label: 'Portfolio Website',
-    name: 'Studio Mercer',
-    desc: 'Architecture practice, redefined online. A site as considered as the buildings they design.',
+    name: 'Faded Studio',
+    desc: 'Brand identity and web presence for a Sydney creative studio. Minimal, sharp, and built to leave an impression.',
     angle: 90,
     bg: '#0C0C0C',
+    href: 'https://fadedstudio.com.au',
   },
 ]
 
@@ -173,7 +176,7 @@ function SelectedWork() {
                 bg={p.bg}
                 patternId={`sh${i}`}
                 aspect="4 / 3"
-                href="/work"
+                href={p.href}
               />
             </RevealBlock>
           ))}

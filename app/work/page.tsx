@@ -16,6 +16,7 @@ const projects = [
     desc: 'A partner-level digital presence for a boutique law firm. Clean, authoritative, and built to earn trust in seconds.',
     angle: 45,
     bg: '#0B0B0B',
+    href: '/work',
   },
   {
     label: 'Business Transformation',
@@ -24,14 +25,16 @@ const projects = [
     desc: 'Complete rebuild for a hospitality group. Responsive, fast, and conversion-optimised. Reservations up 40% in Q1.',
     angle: 135,
     bg: '#0E0E0E',
+    href: '/work',
   },
   {
     label: 'Portfolio Website',
-    name: 'Studio Mercer',
+    name: 'Faded Studio',
     year: '2026',
-    desc: 'Architecture practice website. Every page as considered and deliberate as the buildings they design.',
+    desc: 'Brand identity and web presence for a Sydney creative studio. Minimal, sharp, and built to leave an impression.',
     angle: 90,
     bg: '#0C0C0C',
+    href: 'https://fadedstudio.com.au',
   },
 ]
 
@@ -68,6 +71,7 @@ export default function WorkPage() {
                   patternId={`wp${i}`}
                   aspect="3 / 2"
                   year={p.year}
+                  href={p.href}
                 />
               </RevealBlock>
             ))}
