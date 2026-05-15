@@ -11,24 +11,6 @@ export const metadata: Metadata = {
 const projects = [
   {
     label: 'Portfolio Website',
-    name: 'Harrison & Webb',
-    year: '2026',
-    desc: 'A partner-level digital presence for a boutique law firm. Clean, authoritative, and built to earn trust in seconds.',
-    angle: 45,
-    bg: '#0B0B0B',
-    href: '/work',
-  },
-  {
-    label: 'Business Transformation',
-    name: 'The Anchor',
-    year: '2026',
-    desc: 'Complete rebuild for a hospitality group. Responsive, fast, and conversion-optimised. Reservations up 40% in Q1.',
-    angle: 135,
-    bg: '#0E0E0E',
-    href: '/work',
-  },
-  {
-    label: 'Portfolio Website',
     name: 'Faded by Shreyash',
     year: '2026',
     desc: 'Personal brand site for Sydney barber Shreyash — precision fades, private sessions, and a presence that matches the craft.',

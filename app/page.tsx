@@ -125,22 +125,6 @@ function ServicesTeaser() {
 const projects = [
   {
     label: 'Portfolio Website',
-    name: 'Harrison & Webb',
-    desc: 'A partner-level presence for a boutique law firm. Clarity, authority, and trust — above the fold.',
-    angle: 45,
-    bg: '#0B0B0B',
-    href: '/work',
-  },
-  {
-    label: 'Business Transformation',
-    name: 'The Anchor',
-    desc: 'A hospitality brand rebuilt from the ground up. Reservations up 40% in the first quarter.',
-    angle: 135,
-    bg: '#0E0E0E',
-    href: '/work',
-  },
-  {
-    label: 'Portfolio Website',
     name: 'Faded by Shreyash',
     desc: 'Personal brand site for Sydney barber Shreyash — precision fades, private sessions, and a presence that matches the craft.',
     angle: 90,
@@ -162,7 +146,7 @@ function SelectedWork() {
             className="font-serif font-normal text-x-black leading-[1.1] tracking-[-0.02em]"
             style={{ fontSize: 'clamp(30px, 3.8vw, 54px)' }}
           >
-            Three recent projects.
+            Recent work.
           </h2>
         </RevealBlock>
 
