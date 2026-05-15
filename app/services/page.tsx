@@ -54,19 +54,19 @@ function TierGrid({ tiers }: { tiers: Tier[] }) {
 const portfolioTiers: Tier[] = [
   {
     name: 'Essential',
-    price: 'From $1,500',
+    price: 'From $500',
     desc: 'Single-page portfolio. Fast, mobile-first, and ready to convert.',
     features: ['One-page design', 'Mobile responsive', 'Contact form', 'Google Analytics', '2 revision rounds'],
   },
   {
     name: 'Professional',
-    price: 'From $3,000',
+    price: 'From $800',
     desc: 'Multi-page portfolio with blog and full SEO optimisation.',
     features: ['Up to 6 pages', 'Blog / journal', 'SEO optimisation', 'Performance audit', '3 revision rounds', 'Launch support'],
   },
   {
     name: 'Premium',
-    price: 'From $5,500',
+    price: 'From $1,200',
     desc: 'Fully bespoke design, custom interactions, CMS, built to grow.',
     features: ['Custom design', 'CMS integration', 'Animations', 'Accessibility audit', 'Unlimited revisions', '3-month support'],
   },
@@ -75,19 +75,19 @@ const portfolioTiers: Tier[] = [
 const businessTiers: Tier[] = [
   {
     name: 'Refresh',
-    price: 'From $2,500',
+    price: 'From $600',
     desc: 'Visual redesign of your existing site without a full rebuild.',
     features: ['Design overhaul', 'Mobile optimisation', 'Copy editing', 'Basic SEO', '2 revision rounds'],
   },
   {
     name: 'Rebuild',
-    price: 'From $4,500',
+    price: 'From $900',
     desc: 'Full rebuild on a modern stack. Faster, better-ranked, built to convert.',
     features: ['Full rebuild', 'New architecture', 'SEO and performance', 'CMS for easy edits', 'Lead gen setup', 'Launch support'],
   },
   {
     name: 'Growth',
-    price: 'From $8,000',
+    price: 'From $1,500',
     desc: 'E-commerce, booking systems, or complex integrations built to scale.',
     features: ['E-commerce / booking', 'Custom integrations', 'Analytics setup', 'Dedicated support', 'Quarterly reviews'],
   },
